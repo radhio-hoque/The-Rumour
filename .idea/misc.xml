@@ -5,7 +5,11 @@
       <map>
         <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/drawable/ic_all_news.xml" value="0.1" />
         <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/drawable/ic_favorite.xml" value="0.1" />
-        <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/layout/activity_news.xml" value="0.1" />
+        <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/layout/article_fragment.xml" value="0.1" />
+        <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/layout/item_artical_preview.xml" value="0.1" />
+        <entry key="..\:/Radhio Temp/The Rumour/The-Rumour/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
