@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
  * Created by Azmia Hoque Radhio on 2/1/2022.
  */
 class RetrofitInstance {
-    companion object{
+    companion object {
         private val retrofit by lazy {
             Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -25,12 +25,12 @@ class RetrofitInstance {
             retrofit.create(HeadLinesAPI::class.java)
         }
 
-        private val httpClient : OkHttpClient.Builder = OkHttpClient.Builder()
+        private val httpClient: OkHttpClient.Builder = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
 
-        private fun getLoggingInterceptor() : HttpLoggingInterceptor{
+        private fun getLoggingInterceptor(): HttpLoggingInterceptor {
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             return loggingInterceptor
