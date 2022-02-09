@@ -6,5 +6,5 @@ import com.radhio.therumour.repositories.NewsRepository
 class NewsViewModel(
     repository: NewsRepository
 ) : ViewModel() {
-    
+
 }

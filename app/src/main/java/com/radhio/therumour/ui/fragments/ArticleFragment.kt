@@ -8,9 +8,7 @@ import com.radhio.therumour.R
 
 class ArticleFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ):
-            View? {
-        viewModel
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         return inflater.inflate(R.layout.article_fragment, container, false)
     }
 }
