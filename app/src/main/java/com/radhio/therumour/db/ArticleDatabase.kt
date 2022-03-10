@@ -10,10 +10,12 @@ import com.radhio.therumour.models.Article
 /**
  * Created by Azmia Hoque Radhio on 2/1/2022.
  */
+
 @Database(
     entities = [Article::class],
     version = 1,
 )
+
 @TypeConverters(Convertors::class)
 abstract class ArticleDatabase : RoomDatabase() {
 
@@ -24,7 +26,8 @@ abstract class ArticleDatabase : RoomDatabase() {
         private var dbInstance: ArticleDatabase? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = dbInstance ?: synchronized(LOCK) {
+        operator fun invoke(context: Context) = dbInstance ?:
+        synchronized(LOCK) {
             dbInstance ?: createDatabase(context).also { dbInstance = it }
         }
 

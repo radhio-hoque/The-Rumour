@@ -21,9 +21,9 @@ class RetrofitInstance {
                 .build()
         }
 
-        val api by lazy {
-            retrofit.create(HeadLinesAPI::class.java)
-        }
+//        val api by lazy {
+//            retrofit.create(HeadLinesAPI::class.java)
+//        }
 
         private val httpClient: OkHttpClient.Builder = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
