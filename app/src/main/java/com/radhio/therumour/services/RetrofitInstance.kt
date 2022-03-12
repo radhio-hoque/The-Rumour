@@ -1,6 +1,6 @@
 package com.radhio.therumour.services
 
-import com.radhio.therumour.endpoints.HeadLinesAPI
+import com.radhio.therumour.endpoints.BreakingNewsAPI
 import com.radhio.therumour.util.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,17 +13,13 @@ import java.util.concurrent.TimeUnit
  */
 class RetrofitInstance {
     companion object {
-        private val retrofit by lazy {
+        val retrofit by lazy {
             Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(callOkHttpClint())
                 .build()
         }
-
-//        val api by lazy {
-//            retrofit.create(HeadLinesAPI::class.java)
-//        }
 
         private val httpClient: OkHttpClient.Builder = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
