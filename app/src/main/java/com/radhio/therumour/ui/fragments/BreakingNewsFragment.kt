@@ -32,7 +32,7 @@ class BreakingNewsFragment : BaseFragment() {
     }
 
     private fun fetchDataFromViewModel() {
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+        viewModel.getBreakingNews("us").observe(viewLifecycleOwner, { response ->
             when(response){
                 is Resource.Success -> {
                    hideProgressBar()
