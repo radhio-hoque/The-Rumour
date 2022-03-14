@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.radhio.therumour.R
 import com.radhio.therumour.adapters.NewsAdapter
@@ -39,6 +40,14 @@ class SearchNewsFragment : BaseFragment() {
         val viewModelProviderFactory = NewsViewModelProviderFactory()
         searchViewModel = ViewModelProvider(this,viewModelProviderFactory)[SearchNewsViewModel::class.java]
         setUpRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("article", it)
+            }
+            findNavController().navigate(R.id.action_searchNewsFragment_to_articleFragment, bundle)
+        }
+
         var job : Job? = null
         etSearch.addTextChangedListener {
             job?.cancel()

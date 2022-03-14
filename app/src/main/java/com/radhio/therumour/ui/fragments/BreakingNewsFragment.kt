@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.radhio.therumour.R
 import com.radhio.therumour.adapters.NewsAdapter
@@ -32,6 +33,12 @@ class BreakingNewsFragment : BaseFragment() {
         val viewModelProviderFactory = NewsViewModelProviderFactory()
         breakingNewsViewModel = ViewModelProvider(this,viewModelProviderFactory)[BreakingNewsViewModel::class.java]
         setUpRecyclerView()
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("article", it)
+            }
+            findNavController().navigate(R.id.action_breakingNewsFragment_to_articleFragment, bundle)
+        }
         fetchDataFromViewModel();
     }
 
