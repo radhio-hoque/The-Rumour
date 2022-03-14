@@ -11,10 +11,7 @@ import com.radhio.therumour.viewmodels.BreakingNewsViewModel
  */
 abstract class BaseFragment : Fragment() {
 
-    lateinit var viewModel: BreakingNewsViewModel
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (activity as NewsActivity).newsViewModel
     }
 }

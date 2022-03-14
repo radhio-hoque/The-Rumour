@@ -13,7 +13,6 @@ import com.radhio.therumour.viewmodels.NewsViewModelProviderFactory
 import kotlinx.android.synthetic.main.activity_news.*
 
 class NewsActivity : AppCompatActivity() {
-    lateinit var newsViewModel : BreakingNewsViewModel
 
     private val navController by lazy {
         val navHostFragment = supportFragmentManager
@@ -32,7 +31,5 @@ class NewsActivity : AppCompatActivity() {
     private fun initiateViewModel(){
        //val newsRepository = BreakingNewsRepository(ArticleDatabase(this))
         val newsRepository = BreakingNewsRepository()
-        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
-        newsViewModel = ViewModelProvider(this,viewModelProviderFactory)[BreakingNewsViewModel::class.java]
     }
 }

@@ -5,20 +5,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.radhio.therumour.R
 import com.radhio.therumour.adapters.NewsAdapter
 import com.radhio.therumour.util.Resource
+import com.radhio.therumour.viewmodels.BreakingNewsViewModel
+import com.radhio.therumour.viewmodels.NewsViewModelProviderFactory
 import kotlinx.android.synthetic.main.breaking_news_fragment.*
 
 class BreakingNewsFragment : BaseFragment() {
 
     lateinit var newsAdapter: NewsAdapter
+    lateinit var breakingNewsViewModel : BreakingNewsViewModel
 
     companion object {
         private const val TAG = "BreakingNewsFragment"
-        fun newInstance() = BreakingNewsFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,12 +29,14 @@ class BreakingNewsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val viewModelProviderFactory = NewsViewModelProviderFactory()
+        breakingNewsViewModel = ViewModelProvider(this,viewModelProviderFactory)[BreakingNewsViewModel::class.java]
         setUpRecyclerView()
         fetchDataFromViewModel();
     }
 
     private fun fetchDataFromViewModel() {
-        viewModel.getBreakingNews("us").observe(viewLifecycleOwner, { response ->
+        breakingNewsViewModel.getBreakingNews("us").observe(viewLifecycleOwner, { response ->
             when(response){
                 is Resource.Success -> {
                    hideProgressBar()
@@ -54,11 +58,11 @@ class BreakingNewsFragment : BaseFragment() {
     }
 
     private fun hideProgressBar() {
-        paginationProgressBar.visibility = View.INVISIBLE
+        pbBreakingNews.visibility = View.INVISIBLE
     }
 
     private fun showProgressBar() {
-        paginationProgressBar.visibility = View.VISIBLE
+        pbBreakingNews.visibility = View.VISIBLE
     }
 
     private fun setUpRecyclerView(){
