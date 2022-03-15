@@ -52,7 +52,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
                 .transition(DrawableTransitionOptions.withCrossFade(1000))
                 .into(ivArticleImage)
 
-            tvSource.text = article.source.name
+            tvSource.text = article.source!!.name
             tvTitle.text = article.title
             tvDescription.text = article.description
             tvPublish.text = article.publishedAt
